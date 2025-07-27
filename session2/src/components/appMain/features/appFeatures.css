@@ -1,0 +1,12 @@
+.features {
+  margin-bottom: 40px;
+}
+
+
+.feature {
+  background-color: #fff;
+  padding: 20px;
+  margin: 15px 0;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+}

@@ -1,0 +1,15 @@
+
+.sidebar {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 40px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+
+.sidebar img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}

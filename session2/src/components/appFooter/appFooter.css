@@ -1,0 +1,14 @@
+footer {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+footer nav {
+  margin-top: 10px;
+}
