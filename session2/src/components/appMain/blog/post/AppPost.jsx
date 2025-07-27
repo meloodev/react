@@ -1,15 +1,12 @@
 import './appPost.css'
 
-const AppPost = () => {
+const AppPost = ({ id, title, text, name }) => {
     return (
-        <article className="post">
-            <h3>Using Props Like a Pro</h3>
+        <article className="post" id={`post-${id}`}>
+            <h3>{title}</h3>
+            <p>{text}</p>
             <p>
-                Make your React components reusable and dynamic with props and
-                destructuring.
-            </p>
-            <p>
-                <strong>Author:</strong> John Code
+                <strong>Author:</strong> {name}
             </p>
         </article>
     )
