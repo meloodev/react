@@ -1,0 +1,72 @@
+.box {
+  padding: 24px 24px 15px 24px;
+  border: 1px solid #00000032;
+  border-radius: 8px;
+}
+
+/* .box > *:not(:last-child) {
+  margin-bottom: 20px;
+} */
+
+.box h3 {
+  font-size: 24px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+
+}
+
+.box .box__value {
+  font-size: 60px;
+  color: #0f0be796;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.box .message {
+  height: 15px;
+}
+
+.box__btns {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.box__btns button {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  width: 90px;
+  height: 30px;
+  font-weight: 400;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.box__btns button:active {
+  scale: .98;
+}
+
+.box__btns button:nth-child(1) {
+  background-color: green;
+}
+
+.box__btns button:nth-child(2) {
+  background-color: red;
+}
+
+.box__btns button.disabled:nth-child(2) {
+  background-color: #65656529;
+  color: #000000a8;
+}
+
+.box__btns button.disabled:active {
+  scale: 1;
+}
+
+.box__btns button:nth-child(3) {
+  background-color: #000000a8;
+}
