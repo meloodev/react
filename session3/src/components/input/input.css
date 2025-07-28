@@ -1,0 +1,108 @@
+.input__box {
+    padding: 24px 24px 15px 24px;
+    border: 1px solid #00000032;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+.input__box>h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input__box>h3::first-letter {
+    text-transform: capitalize;
+}
+
+.input__box>*:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.box__input label {
+    display: block;
+    font-size: 13px;
+    color: #a7a7a7;
+    padding-bottom: 5px;
+}
+
+.box__input input {
+    width: 100%;
+    padding: 6px 4px 6px 4px;
+    border: 1px solid #00000032;
+    border-radius: 4px;
+    color: #000000c7;
+}
+
+.box__input input:focus,
+.box__input input:active {
+    outline: 2px solid rgba(255, 99, 71, 0.363);
+    border-color: rgba(255, 99, 71, 0.363);
+    
+}
+
+.box__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box__btn button {
+    font-family: "Montserrat", sans-serif;
+    color: #ffffff;
+    background-color: tomato;
+    width: 90px;
+    height: 30px;
+    font-weight: 400;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.box__btn button:active {
+    scale: .98;
+}
+
+.box__btn>span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 88px;
+}
+
+.box__btn .text__counter {
+    color: rgb(0, 2, 128);
+    font-weight: 500;
+}
+
+.input__box blockquote {
+    position: relative;
+    padding: 5px 5px 5px 10px;
+    background-color: #d2d2d256;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.input__box blockquote::before {
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    background-color: #0f0be796;
+    position: absolute;
+}
+
+.input__box blockquote p:first-child {
+    font-size: 13px;
+    color: #a7a7a7;
+    padding-bottom: 10px;
+}
+
+
+.input__box blockquote p:last-child {
+    font-size: 16px;
+    color: #5f5f5f;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
