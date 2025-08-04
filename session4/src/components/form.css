@@ -102,7 +102,7 @@ form .item label {
     font-size: 13px;
     color: tomato;
     height: 15px;
-      margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .form__agreement label {
@@ -152,4 +152,30 @@ form .form__gender .gender {
 
 form .form__gender .gender label {
     padding-bottom: 0px;
+}
+
+.tumb_two {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+}
+
+body.dark {
+    background-color: #161B21;
+}
+
+body.dark form {
+    background-color: #1D232C;
+}
+
+body.dark form .form__header,
+body.dark form .form__agreement-inner label,
+body.dark form .item label,
+body.dark form .form__descr {
+    color: #EEF0F4;
+}
+
+body.dark form textarea,
+body.dark form .item input {
+    background-color: #BAC4D1;
 }
