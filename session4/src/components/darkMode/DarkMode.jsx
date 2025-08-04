@@ -17,6 +17,8 @@ const DarkMode = () => {
         }
     }, []);
 
+    
+
     const theme = () => {
         setDark(prev => {
             const newValue = !prev;

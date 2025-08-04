@@ -16,6 +16,7 @@ const Form = () => {
 
     const [errors, setErrors] = useState({});
 
+
     const formSchema = z.object({
         name: z.string()
             .min(4, 'Name is required')
@@ -23,9 +24,9 @@ const Form = () => {
             .refine(val => /^[A-Za-z\s]+$/.test(val), {
                 message: 'Only letters and spaces allowed'
             }),
-        email: z.string().email('Invalid email address')
+        email: z.email('Invalid email address')
             .refine(val => val.endsWith('@mail.ru'), {
-                message: 'test2'
+                message: 'err2'
             }),
         subject: z.string().min(2, 'Subject is required'),
         message: z.string().min(10, 'Message must be at least 10 characters'),
@@ -49,13 +50,8 @@ const Form = () => {
 
         }));
 
-        console.log(result);
+        // console.log(result);
     }
-
-
-
-
-
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -64,8 +60,8 @@ const Form = () => {
             setErrors(result.error.flatten().fieldErrors);
         } else {
             setErrors({});
-            console.log(values);
-        }
+             console.log(values);
+        } 
     }
 
     return (
@@ -104,7 +100,7 @@ const Form = () => {
                         value={values.subject}
                         onChange={handleChange}
                     />
-                    <span className="form__email-msg">{errors.subject?.[0]}</span>
+                    <span className="form__subject-msg">{errors.subject?.[0]}</span>
                 </div>
 
                 <div className="form__text item">
