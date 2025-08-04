@@ -1,10 +1,30 @@
 import { useState } from 'react'
 import DarkMode from './darkMode/DarkMode'
+import { z } from 'zod'
 import './form.css';
+
+
+
+const formSchema = z.object({
+    name: z.string()
+        .min(1, 'Name is required')
+        .refine(val => /^[A-Za-z\s]+$/.test(val), {
+            message: 'Only letters and spaces allowed'
+        }),
+    email: z.string().email('Invalid email address')
+        .refine(val => val.endsWith('@mail.ru'), {
+            message: 'test2'
+        }),
+    subject: z.string().min(2, 'Subject is required'),
+    message: z.string().min(10, 'Message must be at least 10 characters'),
+    gender: z.enum(['male', 'female']),
+    chb: z.literal(true),
+});
+
 
 const Form = () => {
 
-    const [value, setValue] = useState({
+    const [values, setValues] = useState({
         name: '',
         email: '',
         subject: '',
@@ -13,32 +33,62 @@ const Form = () => {
         chb: false,
     })
 
+    const [errors, setErrors] = useState({});
+
+    const validateField = (name, value) => {
+        try {
+            const fieldSchema = formSchema.pick({ [name]: true });
+            fieldSchema.parse({ [name]: value });
+            setErrors(prev => {
+                const newErrors = { ...prev };
+                delete newErrors[name];
+                return newErrors;
+            });
+        } catch (err) {
+            if (err instanceof z.ZodError) {
+                setErrors(prev => ({
+                    ...prev,
+                    [name]: err.flatten().fieldErrors[name]
+                }));
+            }
+        }
+    };
+
     function handleChange(e) {
         const { name, value, type, checked } = e.target;
 
-        setValue((prev) => ({
+        const newValue = type === 'checkbox' ? checked : value;
+        setValues((prev) => ({
             ...prev,
-            [name]: type === 'checkbox' ? checked : value
+            [name]: newValue
         }))
+
+        validateField(name, newValue);
+
     }
 
 
-    function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
+
+
+
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (
-            value.name.trim() !== '' &&
-            validateEmail(value.email) &&
-            value.subject.trim() !== '' &&
-            value.message.trim().length >= 10 &&
-            (value.gender === 'male' || value.gender === 'female') &&
-            value.chb === true
-        ) {
-            console.log(value);
+        const result = formSchema.safeParse(values);
+
+        if (result.success) {
+            console.log('Success:', result.data);
+            setErrors({});
+            // setValue({
+            //     name: '',
+            //     email: '',
+            //     subject: '',
+            //     message: '',
+            //     gender: 'male',
+            //     chb: false,
+            // });
+        } else {
+            setErrors(result.error.flatten().fieldErrors);
         }
     }
 
@@ -57,40 +107,40 @@ const Form = () => {
                     <input type="text" placeholder="Name"
                         id="name"
                         name="name"
-                        value={value.name}
+                        value={values.name}
                         onChange={handleChange}
-                        required />
-                    <span className="form__name-msg"></span>
+                    />
+                    <span className="form__name-msg">{errors.name?.[0]}</span>
                 </div>
                 <div className="form__email item">
                     <label htmlFor="email">Email Address</label>
                     <input type="email" placeholder="Email"
                         id="email"
                         name="email"
-                        value={value.email}
+                        value={values.email}
                         onChange={handleChange}
-                        required />
-                    <span className="form__email-msg"></span>
+                    />
+                    <span className="form__email-msg">{errors.email?.[0]}</span>
                 </div>
                 <div className="form__subject item">
                     <label htmlFor="subject">Subject</label>
                     <input type="text" placeholder="Subject"
                         id="subject" name="subject"
-                        value={value.subject}
+                        value={values.subject}
                         onChange={handleChange}
-                        required />
-                    <span className="form__email-msg"></span>
+                    />
+                    <span className="form__email-msg">{errors.subject?.[0]}</span>
                 </div>
 
                 <div className="form__text item">
                     <label htmlFor="message">Message</label>
                     <textarea name="message" placeholder="Message your text"
                         id="message"
-                        value={value.message}
+                        value={values.message}
                         onChange={handleChange}
-                        required></textarea>
-                    <span className="form__text-msg">{(value.message.length < 10 && value.message.length > 0) ? 'The text must be longer than 10 characters.' : ''}</span>
-                    <span className="form__text-count">{value.message.length > 0 ? value.message.length : ''}</span>
+                    ></textarea>
+                    <span className="form__text-msg">{errors.message?.[0]}</span>
+                    <span className="form__text-count">{values.message.length > 0 ? values.message.length : ''}</span>
                 </div>
 
                 <div className="form__gender item">
@@ -99,7 +149,7 @@ const Form = () => {
                             id="male"
                             name="gender"
                             value="male"
-                            checked={value.gender === 'male'}
+                            checked={values.gender === 'male'}
                             onChange={handleChange} />
                         <label htmlFor="male">Male</label>
                     </div>
@@ -108,18 +158,21 @@ const Form = () => {
                             id="female"
                             name="gender"
                             value="female"
-                            checked={value.gender === 'female'}
+                            checked={values.gender === 'female'}
                             onChange={handleChange} />
                         <label htmlFor="female">Female</label>
                     </div>
                 </div>
 
                 <div className="form__agreement">
-                    <input type="checkbox"
-                        id="chb" name="chb"
-                        checked={value.chb}
-                        onChange={handleChange} required />
-                    <label htmlFor="chb">I agree to the terms</label>
+                    <div className="form__agreement-inner">
+                        <input type="checkbox"
+                            id="chb" name="chb"
+                            checked={values.chb}
+                            onChange={handleChange} />
+                        <label htmlFor="chb">I agree to the terms</label>
+                    </div>
+                    <span className="form__agreement-msg">{errors.subject?.[0]}</span>
                 </div>
 
                 <div className="form__send">
