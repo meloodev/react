@@ -3,25 +3,6 @@ import DarkMode from './darkMode/DarkMode'
 import { z } from 'zod'
 import './form.css';
 
-
-
-const formSchema = z.object({
-    name: z.string()
-        .min(1, 'Name is required')
-        .refine(val => /^[A-Za-z\s]+$/.test(val), {
-            message: 'Only letters and spaces allowed'
-        }),
-    email: z.string().email('Invalid email address')
-        .refine(val => val.endsWith('@mail.ru'), {
-            message: 'test2'
-        }),
-    subject: z.string().min(2, 'Subject is required'),
-    message: z.string().min(10, 'Message must be at least 10 characters'),
-    gender: z.enum(['male', 'female']),
-    chb: z.literal(true),
-});
-
-
 const Form = () => {
 
     const [values, setValues] = useState({
@@ -35,36 +16,40 @@ const Form = () => {
 
     const [errors, setErrors] = useState({});
 
-    const validateField = (name, value) => {
-        try {
-            const fieldSchema = formSchema.pick({ [name]: true });
-            fieldSchema.parse({ [name]: value });
-            setErrors(prev => {
-                const newErrors = { ...prev };
-                delete newErrors[name];
-                return newErrors;
-            });
-        } catch (err) {
-            if (err instanceof z.ZodError) {
-                setErrors(prev => ({
-                    ...prev,
-                    [name]: err.flatten().fieldErrors[name]
-                }));
-            }
-        }
-    };
+    const formSchema = z.object({
+        name: z.string()
+            .min(4, 'Name is required')
+            .max(10, 'Name must be at most 10 characters')
+            .refine(val => /^[A-Za-z\s]+$/.test(val), {
+                message: 'Only letters and spaces allowed'
+            }),
+        email: z.string().email('Invalid email address')
+            .refine(val => val.endsWith('@mail.ru'), {
+                message: 'test2'
+            }),
+        subject: z.string().min(2, 'Subject is required'),
+        message: z.string().min(10, 'Message must be at least 10 characters'),
+        gender: z.enum(['male', 'female']),
+        chb: z.literal(true),
+    });
+
 
     function handleChange(e) {
         const { name, value, type, checked } = e.target;
-
         const newValue = type === 'checkbox' ? checked : value;
-        setValues((prev) => ({
+
+        setValues(prev => ({ ...prev, [name]: newValue }));
+
+        const fieldSchema = formSchema.shape[name];
+        const result = fieldSchema.safeParse(newValue);
+
+        setErrors(prev => ({
             ...prev,
-            [name]: newValue
-        }))
+            [name]: result.success ? [] : result.error.issues.map(issue => issue.message)
+            
+        }));
 
-        validateField(name, newValue);
-
+        console.log(result);
     }
 
 
@@ -75,23 +60,13 @@ const Form = () => {
     function handleSubmit(e) {
         e.preventDefault();
         const result = formSchema.safeParse(values);
-
-        if (result.success) {
-            console.log('Success:', result.data);
-            setErrors({});
-            // setValue({
-            //     name: '',
-            //     email: '',
-            //     subject: '',
-            //     message: '',
-            //     gender: 'male',
-            //     chb: false,
-            // });
-        } else {
+        if (!result.success) {
             setErrors(result.error.flatten().fieldErrors);
+        } else {
+            setErrors({});
+            console.log(values);
         }
     }
-
 
     return (
         <>
@@ -172,7 +147,7 @@ const Form = () => {
                             onChange={handleChange} />
                         <label htmlFor="chb">I agree to the terms</label>
                     </div>
-                    <span className="form__agreement-msg">{errors.subject?.[0]}</span>
+                    <span className="form__agreement-msg">{errors.chb && errors.chb.length > 0 && 'You must agree to our Terms and Conditions'}</span>
                 </div>
 
                 <div className="form__send">
