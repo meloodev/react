@@ -1,0 +1,113 @@
+.one {
+  padding: 15px 20px 15px 20px;
+  border: 1px solid #d2d2d2d2;
+  border-radius: 8px;
+  display: inline-block;
+      min-width: 320px;
+}
+
+.one__title {
+  font-weight: 500;
+  font-size: 16px;
+  color: rgb(99, 79, 79);
+  padding-bottom: 8px;
+}
+
+.one__subtitle {
+  font-weight: 500;
+  font-size: 12px;
+  color: rgb(255, 120, 120);
+  padding-bottom: 10px;
+}
+
+.one__header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 2px solid #20709e4b;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 99, 71, 0.096);
+  font-size: 15px;
+  margin-bottom: 10px;
+
+}
+
+.one__header h3 {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(1, 18, 173);
+}
+
+.one__header span {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(1 127 173);
+}
+
+
+
+.one__controls {
+  border: 2px solid #d2d2d2;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0b6;
+}
+
+.one__controls-title {
+  color: rgb(99, 79, 79);
+  font-weight: 500;
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+
+.one__controls-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.one__controls button {
+  width: 100%;
+  height: 25px;
+  background-color: green;
+  color: #fff;
+  font-family: inherit;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out
+}
+
+.one__controls button:nth-child(1) {
+  background-color: rgba(0, 182, 0, 0.664);
+}
+
+.one__controls button:nth-child(2) {
+  background-color: rgb(255, 34, 34);
+}
+
+.one__controls button:nth-child(3) {
+  background-color: #6d6d6d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.one__controls button:nth-child(1):hover {
+  background-color: rgba(0, 136, 0, 0.664);
+}
+
+.one__controls button:nth-child(2):hover {
+  background-color: rgb(204, 22, 22);
+}
+
+.one__controls button:nth-child(3):hover {
+  background-color: #424242;
+}
+
+.one__controls button:active {
+  scale: 1.03;
+}
