@@ -79,6 +79,7 @@
   transition: background-color .2s ease-in-out
 }
 
+
 .one__controls button:nth-child(1) {
   background-color: rgba(0, 182, 0, 0.664);
 }
@@ -110,4 +111,25 @@
 
 .one__controls button:active {
   scale: 1.03;
+}
+
+.one__controls button.off:active {
+  scale: 1;
+}
+
+
+.one__controls button:nth-child(1).off:hover {
+  background-color: rgba(0, 182, 0, 0.664);
+}
+
+.one__controls button:nth-child(2).off:hover {
+  background-color: rgb(255, 34, 34);
+}
+
+.one__controls button:nth-child(3).off:hover {
+  background-color: #6d6d6d;
+}
+
+.one__controls button.off {
+  cursor: default;
 }

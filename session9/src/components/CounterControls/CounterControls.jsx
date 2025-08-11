@@ -1,6 +1,6 @@
 import './counterControls.css';
 
-const CounterControls = ({ value, increase, decrease, reset }) => {
+const CounterControls = ({ value, increase, decrease, reset, btnToggle }) => {
     return (
         <div className="one">
             <h2 className="one__title">Controlled Counter</h2>
@@ -12,9 +12,9 @@ const CounterControls = ({ value, increase, decrease, reset }) => {
             <div className="one__controls">
                 <h2 className="one__controls-title">Controls</h2>
                 <div className="one__controls-inner">
-                    <button onClick={increase}>+ increase</button>
-                    <button onClick={decrease}>- decrease</button>
-                    <button onClick={reset}><i className="fa-solid fa-window-restore"></i>reset</button>
+                    <button disabled={btnToggle} className={btnToggle ? 'off' : ''} onClick={increase}>+ increase</button>
+                    <button disabled={btnToggle} className={btnToggle ? 'off' : ''} onClick={decrease}>- decrease</button>
+                    <button disabled={btnToggle} className={btnToggle ? 'off' : ''} onClick={reset}><i className="fa-solid fa-window-restore"></i>reset</button>
                 </div>
             </div>
         </div>

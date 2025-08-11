@@ -36,12 +36,41 @@
     align-items: center;
     gap: 10px;
     transition: background-color .2s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.three__sum {
+    font-size: 12px;
+    padding: 4px 8px 4px 8px;
+    background-color: #d2d2d238;
+    border-radius: 3px;
+}
+
+.three__sum span {
+    font-weight: 500;
 }
 
 .three__btn:active {
     scale: 1.03;
 }
 
+
 .three__btn:hover {
     background-color: #257096;
+}
+
+.three__btn.off {
+    cursor: default;
+}
+
+.three__btn.off {
+    scale: 1;
+}
+
+.three__btn.off:hover {
+    background-color: #258dc1;
+}
+
+.three__btn.off:active {
+    scale: 1;
 }

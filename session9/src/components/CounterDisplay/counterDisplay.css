@@ -111,3 +111,24 @@
 .two__controls button:active {
   scale: 1.03;
 }
+
+.two__controls button.off:active {
+  scale: 1;
+}
+
+
+.two__controls button:nth-child(1).off:hover {
+  background-color: rgba(0, 182, 0, 0.664);
+}
+
+.two__controls button:nth-child(2).off:hover {
+  background-color: rgb(255, 34, 34);
+}
+
+.two__controls button:nth-child(3).off:hover {
+  background-color: #6d6d6d;
+}
+
+.two__controls button.off {
+  cursor: default;
+}
