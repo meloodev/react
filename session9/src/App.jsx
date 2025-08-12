@@ -12,9 +12,9 @@ function App() {
   const [btnToggle, setBtnToggle] = useState(false);
 
 
-  const getDisplayValue = (val) => {
-    setDisplay(val);
-  }
+  // const getDisplayValue = (val) => {
+  //   setDisplay(val);
+  // }
 
   const increase = () => {
     setValue((value) => value + 1);
@@ -40,7 +40,7 @@ function App() {
         <div className="wrapper__inner">
           <CounterGlobal btnToggle={btnToggle} btnToggleFunc={btnActive} reset={reset} value={value} display={display} />
           <CounterControls btnToggle={btnToggle} value={value} increase={increase} decrease={decrease} reset={reset} />
-          <CounterDisplay btnToggle={btnToggle} getDisplayValue={getDisplayValue} />
+          <CounterDisplay btnToggle={btnToggle} getDisplayValue={setDisplay} />
 
         </div>
       </div>
