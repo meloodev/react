@@ -1,6 +1,9 @@
 import './cartFooter.css';
 
-const CartFooter = () => {
+const CartFooter = ({ items }) => {
+
+    const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
     return (
         <div className="cart__footer">
             <div className="cart__footer-head">
@@ -9,9 +12,9 @@ const CartFooter = () => {
                     <div className="cart__footer-title">total:</div>
                 </div>
                 <div className="cart__footer-calculation">
-                    <div className="cart__footer-count">2<span> pc</span>
+                    <div className="cart__footer-count">{totalItems}<span> pc</span>
                     </div>
-                    <div className="cart__footer-totalprice">53500<span> gel</span>
+                    <div className="cart__footer-totalprice">{totalAmount.toFixed(2)}<span> gel</span>
                     </div>
                 </div>
             </div>
