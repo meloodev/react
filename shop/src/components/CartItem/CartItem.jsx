@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './cartItem.css';
 const CartItem = ({ product, updateQuantity, removeFromCart }) => {
     const { id, name, price, quantity } = product;
