@@ -23,7 +23,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 500px;
+    /* max-width: 580px; */
+    max-width: clamp(17.188rem, -40.255rem + 102.007vw, 36.25rem);
 }
 
 .shop__item .item__price {
@@ -58,6 +59,18 @@
 
     .shop__item:hover {
         background-color: #f4f4f4;
+    }
+}
+
+@media (max-width: 900px) {
+    .shop__item .item__name {
+        max-width: clamp(7.5rem, -9.741rem + 86.207vw, 38.75rem);
+    }
+}
+
+@media (max-width: 660px) {
+    .shop__item .item__name {
+        max-width: clamp(6.875rem, -7.243rem + 70.588vw, 21.875rem);
     }
 }
 

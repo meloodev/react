@@ -4,7 +4,7 @@ import Cart from './components/Cart/Cart';
 import './App.css';
 
 const products = [
-  { id: 1, name: 'MacBook Air M2', price: 10 },
+  { id: 1, name: 'MacBook Air M2MacBook Air M2MacBook Air M2MacBook Air M2MacBook Air M2MacBook Air M2MacBook Air M2', price: 10 },
   { id: 2, name: 'Samsung S921B Galaxy S24', price: 10 },
   { id: 3, name: 'Apple iPhone 13 128GB', price: 10 }
 ];
@@ -14,17 +14,17 @@ const App = () => {
 
   const addToCart = (product) => {
     setCart(prevCart => {
-      const existingItem = prevCart.find(item => item.id === product.id);
+      let found = false;
 
-      if (existingItem) {
-        return prevCart.map(item =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        return [...prevCart, { ...product, quantity: 1 }];
-      }
+      const newCart = prevCart.map(item => {
+        if (item.id === product.id) {
+          found = true;
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+
+      return found ? newCart : [...prevCart, { ...product, quantity: 1 }];
     });
   };
 
