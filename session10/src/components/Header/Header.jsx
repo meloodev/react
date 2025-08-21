@@ -21,7 +21,7 @@ const Header = () => {
                         <div ref={buttonRef} onClick={() => setValue(val => !val)} className="profile__icon">
                             <i className="fa-solid fa-user-tie"></i>
                         </div>
-                        {<Modal value={value} setValue={setValue} buttonRef={buttonRef} />}
+                        {value && <Modal setValue={setValue} buttonRef={buttonRef} />}
                     </div>
                 </div>
 

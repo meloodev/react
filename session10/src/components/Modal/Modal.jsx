@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import './modal.css';
-const Modal = ({ value, setValue, buttonRef }) => {
+const Modal = ({ setValue, buttonRef }) => {
     const menuRef = useRef(null);
 
     useEffect(() => {
@@ -22,9 +22,9 @@ const Modal = ({ value, setValue, buttonRef }) => {
     }, [setValue, buttonRef]);
 
 
-    { console.log(value) }
+    // { console.log(value) }
     return (
-        <ul className={`modal__menu ${value ? 'show' : ''}`} ref={menuRef}>
+        <ul className={`modal__menu`} ref={menuRef}>
             <li>1st menu item</li>
             <li className="disabled">☺ 2nd menu item (disabled)</li>
             <li className="disabled">3rd menu item (disabled)</li>
