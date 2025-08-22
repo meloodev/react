@@ -5,7 +5,7 @@ const About = () => {
         <section className="about">
             <div className="container">
                 <div className="about__inner">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid est explicabo optio ullam
+                    <p><span>about page</span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid est explicabo optio ullam
                         quaerat, qui odit. Voluptatibus facere accusamus id, animi odit itaque corporis culpa a
                         consequuntur rem, recusandae sapiente?
                         Enim accusantium veniam culpa ipsam cumque illum! Omnis voluptates quasi eligendi ea vero

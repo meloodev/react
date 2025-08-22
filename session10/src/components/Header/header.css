@@ -40,11 +40,16 @@ header nav ul li {
     font-size: clamp(0.875rem, 0.567rem + 1.538vw, 1rem);
 }
 
-header nav ul li.active {
+header nav ul li:has(> a.active) {
     color: #fff;
     background-color: #1677ff;
 }
 
+
+header nav ul li.active {
+    color: #fff;
+    background-color: #1677ff;
+}
 
 
 @media(hover: hover) {

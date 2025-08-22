@@ -1,7 +1,11 @@
 import { useState, useRef } from 'react';
+import { useNavigate, NavLink, useLocation } from 'react-router';
 import Modal from '../Modal/Modal';
 import './header.css';
 const Header = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const [value, setValue] = useState(false);
     const buttonRef = useRef(null);
@@ -12,9 +16,15 @@ const Header = () => {
                 <div className="header__inner">
                     <nav>
                         <ul>
-                            <li>home</li>
-                            <li>about</li>
-                            <li>contacs</li>
+                            <li
+                                className={location.pathname === '/' ? 'active' : ''}
+                                onClick={() => navigate('/')}>home
+                            </li>
+                            <li
+                                className={location.pathname === '/about' ? 'active' : ''}
+                                onClick={() => navigate('about')}>about
+                            </li>
+                            <li> <NavLink to="/contacts" className={({ isActive }) => isActive ? 'active' : ''}>contacts</NavLink></li>
                         </ul>
                     </nav>
                     <div className="profile">

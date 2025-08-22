@@ -1,0 +1,11 @@
+.about__inner {
+    padding: 10px;
+    border: 1px solid #00000032;
+    border-radius: 4px;
+}
+
+.about__inner p span {
+    font-weight: 600;
+    color: tomato;
+    text-transform: capitalize;
+}
