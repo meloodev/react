@@ -22,7 +22,7 @@ const Header = () => {
                             </li>
                             <li
                                 className={location.pathname === '/about' ? 'active' : ''}
-                                onClick={() => navigate('about')}>about
+                                onClick={() => navigate('/about')}>about
                             </li>
                             <li> <NavLink to="/contacts" className={({ isActive }) => isActive ? 'active' : ''}>contacts</NavLink></li>
                         </ul>
