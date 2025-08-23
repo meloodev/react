@@ -1,0 +1,16 @@
+.settings__inner button {
+    width: 80px;
+    height: 25px;
+    background-color: tomato;
+    color: #fff;
+    font-family: inherit;
+    border-radius: 4px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.settings__inner button:active {
+    scale: 1.02;
+}

@@ -3,7 +3,14 @@ import './noMatchPage.css';
 const NoMatchPage = () => {
     return (
         <>
-            <h4>page not found</h4>
+            <div className="nomatchPage">
+                <div className="container">
+                    <div className="nomatchPage__inner">
+                        <h4>page not found</h4>
+                    </div>
+                </div>
+            </div>
+
         </>
     )
 }

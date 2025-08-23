@@ -9,3 +9,24 @@
     color: tomato;
     text-transform: capitalize;
 }
+
+.contacts__inner button {
+    width: 80px;
+    height: 25px;
+    background-color: tomato;
+    color: #fff;
+    font-family: inherit;
+    border-radius: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.contacts__inner button:active {
+    scale: 1.02;
+}
+
+.contacts__inner p {
+    margin-bottom: 20px;
+}

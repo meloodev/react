@@ -25,6 +25,8 @@ const Header = () => {
                                 onClick={() => navigate('/about')}>about
                             </li>
                             <li> <NavLink to="/contacts" className={({ isActive }) => isActive ? 'active' : ''}>contacts</NavLink></li>
+                            <li> <NavLink to="/settings?sort=desc" className={({ isActive }) => isActive ? 'active' : ''}>settings</NavLink></li>
+
                         </ul>
                     </nav>
                     <div className="profile">

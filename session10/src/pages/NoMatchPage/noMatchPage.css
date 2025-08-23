@@ -1,0 +1,7 @@
+.nomatchPage__inner {
+    text-align: center;
+}
+.nomatchPage__inner h4 {
+font-weight: 500;
+color: red;
+}
