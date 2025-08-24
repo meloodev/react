@@ -1,0 +1,26 @@
+.profile__header {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: tomato;
+    padding-bottom: 10px;
+}
+
+.user__profile ul {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user__profile ul li {
+    padding: 4px 8px;
+    background-color: tomato;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.user__profile ul li:active {
+    scale: 1.02;
+}

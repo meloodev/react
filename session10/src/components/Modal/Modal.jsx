@@ -34,7 +34,7 @@ const Modal = ({ setValue, buttonRef }) => {
             <li>1st menu item</li>
             <li className="disabled">☺ 2nd menu item (disabled)</li>
             <li className="disabled">3rd menu item (disabled)</li>
-            <li><NavLink to="/user/asda">Profile</NavLink></li>
+            <li><NavLink to="/profile/asda">Profile</NavLink></li>
             <li>a danger item</li>
         </ul>
     )

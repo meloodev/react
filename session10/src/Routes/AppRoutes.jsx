@@ -5,6 +5,8 @@ import Contacts from '../pages/Contacts/Contacts'
 import Settings from '../pages/Settings/Settings'
 import User from '../pages/Profile/User'
 import NoMatchPage from '../pages/NoMatchPage/NoMatchPage'
+import UserProfile from '../pages/UserProfile/UserProfile'
+// import UserDataPage from '../pages/UserDataPage/UserDataPage'
 
 const AppRoutes = () => {
     // const navigationRoutes = [
@@ -19,11 +21,19 @@ const AppRoutes = () => {
                 <Route key={route.path} path={route.path} element={route.element} />
             ))} */}
 
-            <Route path='/' element={<Home />} />
+
+            <Route path='/' element={<Home />}>
+                <Route path="user/:username" element={<UserProfile />} />
+            </Route>
+
             <Route path='/about' element={<About />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/settings' element={<Settings />} />
-            <Route path='/user/:userId' element={<User />} />
+            <Route path='/profile/:userId' element={<User />} />
+
+
+
+
             <Route path='*' element={<NoMatchPage />} />
         </Routes>
     )

@@ -4,6 +4,10 @@
     border-radius: 4px;
 }
 
+.home__inner p {
+    margin-bottom: 20px;
+}
+
 .home__inner p span {
     font-weight: 600;
     color: tomato;
