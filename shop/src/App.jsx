@@ -12,6 +12,8 @@ const App = () => {
   const [cart, setCart] = useState([]);
 
 
+  
+
   const addToCart = (product) => {
     setCart(prevCart => {
       let found = false;
