@@ -70,13 +70,16 @@ table thead tr th {
     font-size: 16px;
     text-transform: capitalize;
     font-weight: 600;
-}
-
-table thead tr th {
     user-select: none;
-}
-
-table thead tr th {
     padding: 10px;
     text-align: left;
+}
+
+
+table thead tr th:first-child {
+    width: 40%;
+}
+
+table thead tr th:last-child {
+    width: 60%;
 }
