@@ -1,0 +1,30 @@
+.notFound {
+    width: 100%;
+    position: relative;
+}
+
+.notFound td {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    padding-top: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.notFound td h2 {
+    font-size: 30px;
+    color: #030712;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.notFound td h4 {
+    font-size: 15px;
+    color: #030712;
+    text-transform: uppercase;
+    font-weight: 400;
+}
