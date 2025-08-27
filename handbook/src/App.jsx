@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import HandBookItem from './components/HandbookItem/HandbookItem';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import db from './components/data/db';
@@ -10,14 +10,20 @@ const App = () => {
 
   const [value, setValue] = useState('');
   const [filtered, setFiltered] = useState(db);
+  const timerRef = useRef(null);
 
 
   const inputValue = (e) => {
     const target = e.target.value;
     setValue(target);
+    clearTimeout(timerRef.current);
 
-    const result = db.filter(item => item.css.toLowerCase().includes(target.toLowerCase().trim()));
-    setFiltered(result);
+    timerRef.current = setTimeout(() => {
+      const result = db.filter(item =>
+        item.css.toLowerCase().includes(target.toLowerCase().trim())
+      );
+      setFiltered(result);
+    }, 300);
   }
 
   return (
