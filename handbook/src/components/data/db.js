@@ -93,6 +93,10 @@ const db = [
     { tailwind: 'mx-auto', css: 'margin-left: auto; margin-right: auto;' },
     { tailwind: 'my-auto', css: 'margin-top: auto; margin-bottom: auto;' },
     { tailwind: '-m-2', css: 'margin: -0.5rem;' }, // Negative margin
+    { tailwind: 'mt-2', css: 'margin-top: 0.5rem;' },
+    { tailwind: 'mr-2', css: 'margin-right: 0.5rem;' },
+    { tailwind: 'mb-2', css: 'margin-bottom: 0.5rem;' },
+    { tailwind: 'ml-2', css: 'margin-left: 0.5rem;' },
 
     // --- Sizing ---
     // Width
