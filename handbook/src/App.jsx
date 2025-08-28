@@ -47,7 +47,8 @@ const App = () => {
             <tbody>
 
               {filtered.length > 0 ? filtered.map((item) => (
-                <HandBookItem tailwind={item.tailwind} css={item.css} key={crypto.randomUUID()} />
+
+                <HandBookItem tailwind={item.tailwind} css={item.css} value={value} key={crypto.randomUUID()} />
               )) : (<PageNotFound />)}
 
             </tbody>
