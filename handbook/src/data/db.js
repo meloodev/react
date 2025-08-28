@@ -203,7 +203,18 @@ const db = [
 
     //Transform
     { tailwind: 'translate-x-[42px] translate-y-[18px]', css: 'transform: translate(42px, 18px);' },
+    { tailwind: '-translate-x-1/2 -translate-y-1/2', css: 'transform: translate(-50%, -50%);' },
+    { tailwind: '-translate-x-1/2', css: 'transform: translateX(-50%);' },
 
+    // Border collapse
+    { tailwind: 'border-collapse', css: 'border-collapse: collapse;' },
+    { tailwind: 'border-separate', css: 'border-collapse: separate;' },
+
+    // User select
+    { tailwind: 'select-none', css: 'user-select: none;' },
+    { tailwind: 'select-text', css: 'user-select: text;' },
+    { tailwind: 'select-all', css: 'user-select: all;' },
+    { tailwind: 'select-auto', css: 'user-select: auto;' },
     // Text Decoration
     { tailwind: 'underline', css: 'text-decoration-line: underline;' },
     { tailwind: 'line-through', css: 'text-decoration-line: line-through;' },
