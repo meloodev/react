@@ -75,6 +75,9 @@ const db = [
     { tailwind: 'pr-2', css: 'padding-right: 0.5rem;' },
     { tailwind: 'pb-2', css: 'padding-bottom: 0.5rem;' },
     { tailwind: 'pl-2', css: 'padding-left: 0.5rem;' },
+    { tailwind: 'pt-[10px] pr-[20px] pb-[30px] pl-[20px]', css: 'padding: 10px 20px 30px;' },
+    { tailwind: 'pt-2 pr-4 pb-6 pl-4', css: 'padding: 8px 16px 24px;' },
+    { tailwind: 'py-[10px] px-[20px]', css: 'padding: 10px 20px;' },
     // Margin
     { tailwind: 'm-0', css: 'margin: 0px;' },
     { tailwind: 'm-1', css: 'margin: 0.25rem;' },
@@ -82,6 +85,11 @@ const db = [
     { tailwind: 'm-4', css: 'margin: 1rem;' },
     { tailwind: 'm-8', css: 'margin: 2rem;' },
     { tailwind: 'm-auto', css: 'margin: auto;' },
+    { tailwind: 'mx-auto my-0', css: 'margin: 0 auto;' },
+    { tailwind: 'my-auto mx-0', css: 'margin: auto 0;' },
+    { tailwind: 'mt-[10px] mr-[20px] mb-[30px] ml-[20px]', css: 'margin: 10px 20px 30px;' },
+    { tailwind: 'mt-2 mr-4 mb-6 ml-4', css: 'margin: 8px 16px 24px;' },
+    { tailwind: 'my-[10px] mx-[20px]', css: 'margin: 10px 20px;' },
     { tailwind: 'mx-auto', css: 'margin-left: auto; margin-right: auto;' },
     { tailwind: 'my-auto', css: 'margin-top: auto; margin-bottom: auto;' },
     { tailwind: '-m-2', css: 'margin: -0.5rem;' }, // Negative margin
@@ -98,6 +106,22 @@ const db = [
     { tailwind: 'w-min', css: 'width: min-content;' },
     { tailwind: 'w-max', css: 'width: max-content;' },
     { tailwind: 'w-auto', css: 'width: auto;' },
+
+    { tailwind: 'max-w-[100dvh]', css: 'max-width: 100dvh;' },
+    { tailwind: 'max-w-full', css: 'max-width: 100%;' },
+    { tailwind: 'max-w-[80%]', css: 'max-width: 80%;' },
+    { tailwind: 'max-w-[1440px]', css: 'max-width: 1440px;' },
+    { tailwind: 'max-w-xs', css: 'max-width: 20rem;' },     // 320px
+    { tailwind: 'max-w-sm', css: 'max-width: 24rem;' },     // 384px
+    { tailwind: 'max-w-md', css: 'max-width: 28rem;' },     // 448px
+    { tailwind: 'max-w-lg', css: 'max-width: 32rem;' },     // 512px
+    { tailwind: 'max-w-xl', css: 'max-width: 36rem;' },     // 576px
+    { tailwind: 'max-w-2xl', css: 'max-width: 42rem;' },    // 672px
+    { tailwind: 'max-w-3xl', css: 'max-width: 48rem;' },    // 768px
+    { tailwind: 'max-w-4xl', css: 'max-width: 56rem;' },    // 896px
+    { tailwind: 'max-w-5xl', css: 'max-width: 64rem;' },    // 1024px
+    { tailwind: 'max-w-6xl', css: 'max-width: 72rem;' },    // 1152px
+    { tailwind: 'max-w-7xl', css: 'max-width: 80rem;' },    // 1280px
     // Height
     { tailwind: 'h-0', css: 'height: 0px;' },
     { tailwind: 'h-px', css: 'height: 1px;' },
@@ -106,6 +130,33 @@ const db = [
     { tailwind: 'h-min', css: 'height: min-content;' },
     { tailwind: 'h-max', css: 'height: max-content;' },
     { tailwind: 'h-auto', css: 'height: auto;' },
+    { tailwind: 'max-h-[100dvh]', css: 'max-height: 100dvh;' },
+    { tailwind: 'max-h-screen', css: 'max-height: 100vh;' },
+    { tailwind: 'max-h-full', css: 'max-height: 100%;' },
+    { tailwind: 'max-h-[80%]', css: 'max-height: 80%;' },
+    { tailwind: 'max-h-[1440px]', css: 'max-height: 1440px;' },
+    { tailwind: 'max-h-[1600px]', css: 'max-height: 1600px;' },
+    { tailwind: 'max-h-[1920px]', css: 'max-height: 1920px;' },
+    { tailwind: 'max-h-0', css: 'max-height: 0;' },
+    { tailwind: 'max-h-0.5', css: 'max-height: 0.125rem;' },  // 2px
+    { tailwind: 'max-h-1', css: 'max-height: 0.25rem;' },     // 4px
+    { tailwind: 'max-h-2', css: 'max-height: 0.5rem;' },      // 8px
+    { tailwind: 'max-h-4', css: 'max-height: 1rem;' },        // 16px
+    { tailwind: 'max-h-6', css: 'max-height: 1.5rem;' },      // 24px
+    { tailwind: 'max-h-8', css: 'max-height: 2rem;' },        // 32px
+    { tailwind: 'max-h-10', css: 'max-height: 2.5rem;' },     // 40px
+    { tailwind: 'max-h-12', css: 'max-height: 3rem;' },       // 48px
+    { tailwind: 'max-h-16', css: 'max-height: 4rem;' },       // 64px
+    { tailwind: 'max-h-20', css: 'max-height: 5rem;' },       // 80px
+    { tailwind: 'max-h-24', css: 'max-height: 6rem;' },       // 96px
+    { tailwind: 'max-h-32', css: 'max-height: 8rem;' },       // 128px
+    { tailwind: 'max-h-40', css: 'max-height: 10rem;' },      // 160px
+    { tailwind: 'max-h-48', css: 'max-height: 12rem;' },      // 192px
+    { tailwind: 'max-h-56', css: 'max-height: 14rem;' },      // 224px
+    { tailwind: 'max-h-64', css: 'max-height: 16rem;' },      // 256px
+    { tailwind: 'max-h-72', css: 'max-height: 18rem;' },      // 288px
+    { tailwind: 'max-h-80', css: 'max-height: 20rem;' },      // 320px
+    { tailwind: 'max-h-96', css: 'max-height: 24rem;' },      // 384px
     // --- Typography ---
     // Font Family
     { tailwind: 'font-sans', css: 'font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";' },
@@ -323,6 +374,8 @@ const db = [
     { tailwind: 'border-fuchsia-50', css: 'border-color: rgb(253 244 255);' },
     { tailwind: 'border-pink-50', css: 'border-color: rgb(253 242 248);' },
     { tailwind: 'border-rose-50', css: 'border-color: rgb(255 241 242);' },
+    { tailwind: 'border-[rgb(10,200,150)]', css: 'border-color: rgb(10 200 150);' },
+    { tailwind: 'border-[#f5a623]', css: 'border-color: #f5a623;' },
 
     // SPECIAL COLORS
     { tailwind: 'text-inherit', css: 'color: inherit;' },
@@ -330,6 +383,8 @@ const db = [
     { tailwind: 'text-transparent', css: 'color: transparent;' },
     { tailwind: 'text-black', css: 'color: rgb(0 0 0);' },
     { tailwind: 'text-white', css: 'color: rgb(255 255 255);' },
+    { tailwind: 'text-[rgb(10,200,150)]', css: 'color: rgb(10 200 150);' },
+    { tailwind: 'text-[#f5a623]', css: 'color: #f5a623;' },
 
     { tailwind: 'bg-inherit', css: 'background-color: inherit;' },
     { tailwind: 'bg-current', css: 'background-color: currentColor;' },
