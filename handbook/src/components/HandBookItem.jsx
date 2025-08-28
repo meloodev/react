@@ -13,7 +13,7 @@ const HandBookItem = ({ css, tailwind, value }) => {
         return (
             <span>
                 {before}
-                <mark>{match}</mark>
+                <span style={{backgroundColor: '#ffff00'}}>{match}</span>
                 {after}
             </span>
         );
