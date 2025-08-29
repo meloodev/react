@@ -2,20 +2,35 @@
 const HandBookItem = ({ css, tailwind, value }) => {
 
     function highlightCSS(css, search) {
-        const index = css.indexOf(search);
-        if (index === -1) return css;
+        // const index = css.toLowerCase().indexOf(search.toLowerCase());
+        //if (index === -1) return css;
 
-        const before = css.slice(0, index);
-        const match = css.slice(index, index + search.length);
-        const after = css.slice(index + search.length);
+        // const before = css.slice(0, index);
+        // const match = css.slice(index, index + search.length);
+        // const after = css.slice(index + search.length);
 
-        // return before + '<mark>' + match + '</mark>' + after;
+        if (!search) return css;
+
+        const regex = new RegExp(`(${search})`, "gi");
+        const parts = css.split(regex);
+
         return (
             <span>
-                {before}
-                <span style={{backgroundColor: '#ffff00'}}>{match}</span>
-                {after}
+                {parts.map((part, i) =>
+                    part.toLowerCase() === search.toLowerCase() ? (
+                        <span key={i} className="bg-[yellow] rounded-[2px]">
+                            {part}
+                        </span>
+                    ) : (
+                        part
+                    )
+                )}
             </span>
+            // <span>
+            //     {before}
+            //     <span className="bg-[yellow]">{match}</span>
+            //     {after}
+            // </span>
         );
     }
 
@@ -26,8 +41,7 @@ const HandBookItem = ({ css, tailwind, value }) => {
                 <code>{tailwind}</code>
             </td>
             <td className='text-[#7f22fe] text-sm p-2.5 text-left'>
-
-                <span>{highlightCSS(css, value)}</span>
+                {highlightCSS(css, value)}
             </td>
         </tr>
     )
