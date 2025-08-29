@@ -10,8 +10,9 @@ const HandBookItem = ({ css, tailwind, value }) => {
         // const after = css.slice(index + search.length);
 
         if (!search) return css;
+        const safeSearch = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-        const regex = new RegExp(`(${search})`, "gi");
+        const regex = new RegExp(`(${safeSearch})`, "gi");
         const parts = css.split(regex);
 
         return (
