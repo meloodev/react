@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import HandBookItem from './components/HandBookItem';
 import PageNotFound from './components/PageNotFound';
 import db from './data/db';
@@ -8,6 +8,10 @@ const App = () => {
   const [value, setValue] = useState('');
   const [filtered, setFiltered] = useState(db);
   const timerRef = useRef(null);
+
+  const [displayed, setDisplayed] = useState([]); //
+  const [page, setPage] = useState(1); //
+  const perPage = 30; //
 
 
   const inputValue = (e) => {
@@ -20,8 +24,39 @@ const App = () => {
         item.css.toLowerCase().includes(target.toLowerCase().trim())
       );
       setFiltered(result);
+
+      setPage(1); //
+      setDisplayed(result.slice(0, perPage));//
     }, 300);
   }
+
+  const handleScroll = useCallback(() => {
+    if (
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 100
+    ) {
+      const nextPage = page + 1;
+      const start = (nextPage - 1) * perPage;
+      const end = start + perPage;
+      const nextItems = filtered.slice(start, end);
+
+      if (nextItems.length > 0) {
+        setDisplayed(prev => [...prev, ...nextItems]);
+        setPage(nextPage);
+      }
+    }
+  }, [page, filtered]);
+
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  // Инициализация при первом рендере или при фильтре
+  useEffect(() => {
+    setDisplayed(filtered.slice(0, perPage));
+    setPage(1);
+  }, [filtered]);
 
   return (
     <div className="tailwind">
@@ -46,7 +81,8 @@ const App = () => {
             </thead>
             <tbody>
 
-              {filtered.length > 0 ? filtered.map((item) => (
+              {/* {filtered.length > 0 ? filtered.map((item) => ( */}
+              {displayed.length > 0 ? displayed.map((item) => (
 
                 <HandBookItem tailwind={item.tailwind} css={item.css} value={value} key={crypto.randomUUID()} />
               )) : (<PageNotFound />)}
