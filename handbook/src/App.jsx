@@ -11,7 +11,7 @@ const App = () => {
 
   const [displayed, setDisplayed] = useState([]); //
   const [page, setPage] = useState(1); //
-  const perPage = 40; //
+  const perPage = 30; //
 
 
   const inputValue = (e) => {
