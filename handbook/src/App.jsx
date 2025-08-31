@@ -11,7 +11,7 @@ const App = () => {
 
   const [displayed, setDisplayed] = useState([]); //
   const [page, setPage] = useState(1); //
-  const perPage = 30; //
+  const perPage = 40; //
 
 
   const inputValue = (e) => {
@@ -52,7 +52,7 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // Инициализация при первом рендере или при фильтре
+  // first render
   useEffect(() => {
     setDisplayed(filtered.slice(0, perPage));
     setPage(1);
